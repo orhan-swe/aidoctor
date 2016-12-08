@@ -3,72 +3,111 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Slider from './Slider.js';
 import SelectInput from '../common/SelectInput.js';
+import Chance from 'chance';
+import CategoryMockData from './CategoryMockData';
+import { hashHistory } from 'react-router';
+import CreateRow from  '../common/UI_components/CreateRow';
+import Button from  '../common/UI_components/Button';
 
 class CategoryPage extends React.Component {
 
     constructor(props, context) {
 
         super(props, context);
-        this.categories =
-            [
-                { id: 0, value: "0", text: "Category1" },
-                { id: 1, value: "1", text: "Category3" },
-                { id: 2, value: "2", text: "Category4" },
-                { id: 3, value: "3", text: "Category5" }
-            ];
+        this.categories = CategoryMockData;
 
         this.onChangeCategory = this.onChangeCategory.bind(this);
         this.state = {
-            currentCategory: this.categories[0]
+            currentCategory: this.categories[3],
+            updateRandom: false
         }
+        this.updateRandom = false;
+        this.chance = new Chance();
     }
     onChangeCategory(event) {
         //let cat = this.getCategories()[0];
-        debugger;
+        //debugger;
         let v = parseInt(event.target.value);
+        this.updateRandom = true;
         this.setState({ currentCategory: this.categories[v] });
     }
+    redirectToAddCategoryPage() {
+        hashHistory.push('/create_category');
+    }
+                //<input
+                //    type="submit"
+                //    value="Create Category"
+                //    className="btn btn-primary"
+                //    onClick={this.redirectToAddCategoryPage} />
+
     render() {
         return (
             <div>
-                <SelectInput
-                    label=""
-                    value={this.state.currentCategory.value}
-                    name={this.state.currentCategory.text}
-                    defaultOption="Select Category"
-                    options={this.categories}
-                    onChange={this.onChangeCategory}
-                    error={""} />
-
-                <h3>{this.state.currentCategory.text}</h3>
+                <CreateRow>
+                    <SelectInput
+                        width={4}
+                        label=""
+                        value={this.state.currentCategory.value}
+                        name={this.state.currentCategory.text}
+                        options={this.categories}
+                        onChange={this.onChangeCategory}
+                        error={""} />
+                    <Button
+                        offset={4}
+                        width={4}
+                        value="Create New Category"
+                        onClick={this.redirectToAddCategoryPage} />
+                </CreateRow>
                 <br />
-                <h4>Hear Beat</h4>
+                <br />
+                <h4>{this.state.currentCategory.text}</h4>
+                <br />
+                <h5>Heart Beat</h5>
                 <Slider
                     min={0}
                     max={100}
-                    valueArray={[20, 40, 70]}
+                    valueArray={[
+                        this.chance.natural({ min: 14, max: 30 }),
+                        this.chance.natural({ min: 35, max: 50 }),
+                        this.chance.natural({ min: 60, max: 90 })
+                    ]}
                     minDistance={1}
+                    updateRandom={this.updateRandom}
                     />
-                <h4>Red Blood Cells</h4>
+                <h5>Red Blood Cells</h5>
                 <Slider
                     min={0}
                     max={100}
-                    valueArray={[20, 40, 50, 70]}
+                    valueArray={[
+                        this.chance.natural({ min: 14, max: 30 }),
+                        this.chance.natural({ min: 35, max: 50 }),
+                        this.chance.natural({ min: 52, max: 70 }),
+                        this.chance.natural({ min: 75, max: 99 })
+                    ]}
                     minDistance={1}
+                    updateRandom={this.updateRandom}
                     />
-                <h4>White Blood Cells</h4>
+                <h5>White Blood Cells</h5>
                 <Slider
                     min={100}
                     max={10000}
-                    valueArray={[355, 6755]}
+                    valueArray={[
+                        this.chance.natural({ min: 150, max: 3000 }),
+                        this.chance.natural({ min: 4000, max: 10000 })
+                    ]}
                     minDistance={20}
+                    updateRandom={this.updateRandom}
                     />
-                <h4>Weight</h4>
+                <h5>Weight</h5>
                 <Slider
                     min={0}
                     max={100}
-                    valueArray={[20, 40]}
+                    valueArray={[
+                        this.chance.natural({ min: 10, max: 50 }),
+                        this.chance.natural({ min: 60, max: 100 })
+                    ]}
                     minDistance={3}
+                    updateRandom={this.updateRandom}
                     />
             </div>
         );

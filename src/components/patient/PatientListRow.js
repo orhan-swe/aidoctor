@@ -6,15 +6,15 @@ function getLabel(level) {
    switch(level) {
       case('r'):
            return (
-              <span className="label label-danger">Danger</span>
+              <span className="label label-danger">D</span>
            );
       case('g'):
          return (
-            <span className="label label-success">OK</span>
+            <span className="label label-success">G</span>
          );
       case('y'):
          return (
-            <span className="label label-warning">Warning</span>
+            <span className="label label-warning">W</span>
          );
       default:
          return (

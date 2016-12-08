@@ -12,7 +12,7 @@ const PatientList = ({patients}) => {
                <th>Name</th>
                <th>blood pressure</th>
                <th>white blood cells</th>
-               <th>hear beat</th>
+               <th>heart beat</th>
             </tr>
             </thead>
             <tbody>

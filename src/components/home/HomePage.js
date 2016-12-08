@@ -14,22 +14,24 @@ class HomePage extends React.Component {
                         <span className="glyphicon-class">patients</span>
                      </li>
                   </Link>
-                  <Link to={'/settings'}>
+                  <Link to={'/categories'}>
                      <li>
                         <span className="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                        <span className="glyphicon-class">settings</span>
+                        <span className="glyphicon-class">categories</span>
                      </li>
                   </Link>
-                  <Link to={'/courses'}>
+                  <Link to={'/administration'}>
                      <li>
                         <span className="glyphicon glyphicon-certificate" aria-hidden="true"></span>
                         <span className="glyphicon-class">administration</span>
                      </li>
                   </Link>
+                  <Link to={'/'}>
                   <li>
                      <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                     <span className="glyphicon-class">category</span>
+                     <span className="glyphicon-class">emergency</span>
                   </li>
+                  </Link>
                </ul>
 
             </div>

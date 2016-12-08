@@ -36,7 +36,7 @@ class PatientDetailsPage extends React.Component {
 
 PatientDetailsPage.propTypes = {
    actions: PropTypes.object.isRequired,
-   patient: PropTypes.array.isRequired
+   patient: PropTypes.object.isRequired
 };
 
 PatientDetailsPage.contextTypes = {
