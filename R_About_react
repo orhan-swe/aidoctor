@@ -1,0 +1,71 @@
+Transpiler used for ES6:
+    Bable
+    Bable-polyfill (for features that can not be transpiled from ES6 to ES5)
+      We are importing the whole bable-plyfill, but maybe we should change this in future
+
+Bundling:
+   Webpack
+      We are not using Browserfy as Webpack has become more popular and is more powerful.
+      For more info see webpack.config.*.js
+
+Testing:
+   Mocka
+
+Linter:
+   ESlint
+
+Hot Reloading:
+   babel-preset-react-hmre, has some limitations.. (we should change to react hot loader)
+   also webpack-hot-middleware will kick in if babel fails, see webpack.config.*.js::entry
+
+Node:
+   Use at least version 4
+
+Build task runner:
+   NPM scripts (we are not using gulp or grump due to npm scripts becoming more powerful)
+
+
+Server:
+   We use express for sering our files (actually it is only index.html that will be served :))
+   for dev as it is easy to use with webpack and node
+   For more info see tools/srcServer.js
+
+How to run project:
+   install everything: "npm install"
+   run everything: "npm start" (if you wan it silent add "-s" option)
+
+
+Dev Rules:
+   React ES6 no autobind:
+      Autobind in constructor:
+         this.handleClick = this.handleClick.bind(this);
+   Stateless functional components (most components)
+      Presentational component
+      States go in higher level components and not here
+      No class needed
+      Avoid this keyword
+      Enforced bes practices
+      easier to test
+      performance
+   Class (Container) component:
+      stateful component
+      lifecycle
+      child functions
+      knows about redux
+
+Redux:
+   Complex data flow
+   Inter-component communication
+   Many actions
+   Immutable
+   Reducer (handles action):
+      reducer is a function that excepts a state in an action and returs a new action
+   Async libs for API calls:
+      redux-thunk: the one we use, returns functions, easy to learn
+      redux-saga: more complex, but we can move to it later
+      redux-promise: new lib..
+
+
+
+
+

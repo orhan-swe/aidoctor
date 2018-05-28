@@ -1,3 +1,4 @@
+# This is a fork from React Slingshot!
 # React Slingshot!
 
 [![Build status: Linux](https://img.shields.io/travis/coryhouse/react-slingshot.svg?style=flat-square)](https://travis-ci.org/coryhouse/react-slingshot)
